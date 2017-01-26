@@ -1,15 +1,16 @@
 $(document).ready(function() {
   var proj = document.getElementById('projectile')
   var gun = document.getElementById('gun')
-  gun.style.transform = "rotate(270deg)";
+  var angle = 300
+  gun.style.transform = `rotate(${angle}deg)`;
   var left = parseInt(proj.style.left, 10)
   var bottom = parseInt(proj.style.bottom, 10)
   var time = 0
 
-  var angle = Math.PI * convertDegToRad(270)
-  var velocity = 15
-  var yVelocity = Math.sin(angle) * velocity
-  var xVelocity = Math.cos(angle) * velocity
+  var shooting_angle = Math.PI * convertDegToRad(angle)
+  var velocity = 13
+  var yVelocity = Math.sin(shooting_angle) * velocity
+  var xVelocity = Math.cos(shooting_angle) * velocity
 
   function yMovement() {
     var gravity = .3*(time)
@@ -30,10 +31,21 @@ $(document).ready(function() {
   document.addEventListener("keydown", moveGun)
 
   function moveGun(e) {
-    if (e.which === 37) {
-    moveGunLeft()
-  } else if (e.which === 39) {
-    moveGunRight()
+      if (e.which === 37) {
+      moveGunLeft()
+    } else if (e.which === 39) {
+      moveGunRight()
+    }
+  }
+
+  function moveGunLeft() {
+    angle -= 20
+    debugger
+    gun.style.transform = `rotate(${angle}deg)`
+  }
+
+  function moveGunRight() {
+
   }
 
   window.requestAnimationFrame(xMovement)
