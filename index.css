@@ -6,6 +6,7 @@
   position: relative;
   text-align: center;
   width: 400px;
+  /* make wide screen */
 }
 
 #projectile {
@@ -17,12 +18,12 @@
 }
 
 #gun {
-  width: 50px;
-  height: 8px;
+  width: 8px;
+  height: 50px;
   background: blue;
   bottom: 20px;
   left: 200px;
   position: absolute;
   display: block;
-  transform-origin: 0% 0%;
+  transform-origin: 50% 100%;
 }
