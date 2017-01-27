@@ -3,11 +3,13 @@ class Game {
     this.turn = 0
     this.appendTanks()
     this.tanks = [new Tank(this, 1), new Tank(this, 2)]
+    this.command = this.commandTank.bind(this)
   }
 
   startGame () {
-    this.tanks.forEach( function(tank, index, tanks) {
+    this.tanks.forEach(function(tank, index, tanks) {
       tank.findEnemyTank.call(tank)
+      $(`p#tank-${tank.id}-health`).html(`${tank.hp}`)
     })
     this.newTurn()
   }
@@ -23,20 +25,31 @@ class Game {
   }
 
   newTurn() {
-    var player = this.turn % 2
-    if (player === 0) {
-      $('p.player').html('Player One')
-      $('p.status').html('Move Your Tank')
-      $(document).on("keydown", this.tanks[0].tankCommand)
-    } else{
-      $('p.player').html('Player Two')
-      $('p.status').html('Move Your Tank')
-      $(document).on("keydown", this.tanks[1].tankCommand)
-    }
+    var player = this.turn % 2 + 1
+    $('p.player').html(`Player ${player}'s Turn`)
+    $(document).on("keydown", this.command)
   }
 
-  command() {
-    
+  commandTank(e) {
+    var tank
+    if (this.turn % 2 === 0) {
+      tank = this.tanks[0]
+    } else {
+      tank = this.tanks[1]
+    }
+
+    if (e.which === 32) {
+      $(document).off("keydown", this.command)
+      tank.gun.shoot()
+    } else if (e.which === 37) {
+      tank.moveTankLeft()
+    } else if (e.which === 39) {
+      tank.moveTankRight()
+    } else if (e.which === 38) {
+      tank.gun.rotateGunRight()
+    } else if (e.which === 40) {
+      tank.gun.rotateGunLeft()
+    }
   }
 
   endGame() {

@@ -7,9 +7,7 @@ class Tank {
     this.absRight = this.absLeft + 40
     this.appendGun()
     this.gun = new Gun(this, id)
-    this.tankCommand = this.tankCommand.bind(this)
     this.hp = 2
-    $(`p#tank-${this.id}-health`).html(`${this.hp}`)
   }
 
   findEnemyTank() {
@@ -24,22 +22,6 @@ class Tank {
     $(`#tank-${this.id}`).append(`<div class='gun' id= 'gun-${this.id}' style="left: 14px;" </div>`)
   }
 
-  tankCommand(e) {
-    if (e.which === 32) {
-      $(document).off("keydown", this.tankCommand)
-      $('p.status').html('Aim Your Gun')
-      $(document).on("keydown", this.gun.moveGun)
-    } else if (e.which === 37) {
-        this.moveTankLeft()
-    } else if (e.which === 39) {
-        this.moveTankRight()
-    } else if (e.which === 38) {
-
-    } else if (e.which === 40) {
-
-    }
-  }
-
   moveTankLeft() {
     this.absLeft -= 1
     this.tank.style.left =`${this.absLeft}px`
@@ -49,5 +31,4 @@ class Tank {
     this.absLeft += 1
     this.tank.style.left =`${this.absLeft}px`
   }
-
 }

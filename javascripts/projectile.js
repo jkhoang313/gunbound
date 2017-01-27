@@ -6,7 +6,7 @@ class Projectile {
     this.angle = Math.PI * (90 - angle)/180
     this.yVelocity = Math.sin(this.angle) * velocity
     this.xVelocity = Math.cos(this.angle) * velocity
-    this.time = 0
+    this.timeInAir = 0
     this.gun = gun
     this.absLeft = this.gun.absLeft + this.relLeft
     this.absRight = this.absLeft + 6
@@ -17,24 +17,22 @@ class Projectile {
   }
 
   updateProjectile() {
-    var gravity = .20*(this.time)
+    var gravity = .2*(this.timeInAir)
     //change gravity to make it believable
+    this.bottom += (this.yVelocity - gravity)
     this.relLeft += this.xVelocity
     this.absLeft = this.gun.absLeft + this.relLeft
     this.absRight = this.absLeft + 6
-    this.bottom += (this.yVelocity - gravity)
   }
 
   checkCollision() {
-    var left = parseInt(this.proj.style.left, 10)
-    var bottom = parseInt(this.proj.style.bottom, 10)
-    return this.hitTank(this.gun.tank.enemyTank) || this.hitTank(this.gun.tank) || left < -1000 || left > 1000 || bottom < 0
+    return this.hitTank(this.gun.tank.enemyTank) || this.hitTank(this.gun.tank) || this.relLeft < -1000 || this.relLeft > 1000 || this.bottom < 0
   }
 
   hitTank(tank) {
     if ((this.absLeft <= tank.absLeft && this.absLeft >= tank.absRight && this.bottom <= 0) || (this.absRight <= tank.absRight && this.absRight >= tank.absLeft && this.bottom <= 0)) {
-      debugger
       $('.test').html("hit")
+      //
       tank.hp -= 1
       $(`p#tank-${tank.id}-health`).html(`${tank.hp}`)
       return true
@@ -57,8 +55,8 @@ class Projectile {
       this.updateProjectile()
       this.proj.style.bottom = `${this.bottom}px`
       this.proj.style.left = `${this.relLeft}px`
+      this.timeInAir += 1
       window.requestAnimationFrame(this.bothMovement.bind(this))
-      this.time += 1
     }
   }
 }

@@ -28,12 +28,6 @@
   transform-origin: 50% 100%;
 }
 
-#gun-1 {
-}
-
-#gun-2 {
-}
-
 #status {
   background: green;
   bottom: 400px;
@@ -42,7 +36,6 @@
   width: 200px;
   position: absolute;
   text-align: center;
-
 }
 
 p {
@@ -72,16 +65,14 @@ p {
   height: 20px;
   width: 40px;
   bottom: 0px;
+  position: absolute;
 }
 
 #tank-1 {
-  position: absolute;
   background: red;
 }
 
 #tank-2 {
-  left: 670px;
-  position: absolute;
   background: purple;
 }
 
