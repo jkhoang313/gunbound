@@ -18,11 +18,11 @@ class Projectile {
   checkCollision() {
     var left = parseInt(this.proj.style.left, 10)
     var bottom = parseInt(this.proj.style.bottom, 10)
-    return (left < -200 || left > 195 || bottom < 0)
+    return (left < -1000 || left > 1000 || bottom < 0)
   }
 
   bothMovement() {
-    var gravity = .3*(this.time)
+    var gravity = .25*(this.time)
     //change gravity to make it believable
     var game = this.gun.game
 

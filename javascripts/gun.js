@@ -1,16 +1,25 @@
 class Gun {
-  constructor(game) {
+  constructor(game, id) {
     this.angle = 0
-    this.gun = document.getElementById('gun')
+    this.id = id
+    this.gun = document.getElementById(`gun-${this.id}`)
     this.gun.style.transform = `rotate(${this.angle}deg)`
     this.game = game
-    this.move_gun =  this.rotateGun.bind(this)
+    this.moveGun =  this.rotateGun.bind(this)
   }
 
   command(e) {
     if (e.which === 32) {
-      $(document).off("keydown", this.game.gun_command)
-      $(document).on("keydown", this.move_gun)
+      if (this.id === 1) {
+        $(document).off("keydown", this.game.gunOneCommand)
+        $('p.status').html('Aim Your Gun')
+
+      } else if (this.id === 2) {
+        $(document).off("keydown", this.game.gunTwoCommand)
+        $('p.status').html('Aim Your Gun')
+      }
+
+      $(document).on("keydown", this.moveGun)
     }
       // put out in function
       // tank must know how to access 'this' for gun
@@ -22,9 +31,9 @@ class Gun {
   }
 
   shoot() {
-    $(document).off("keydown", this.move_gun)
-    $('#gun').append('<div id="projectile" style="bottom: 0px; left: 0px;"></div>')
-    var projectile = new Projectile(this.angle, 15, this)
+    $(document).off("keydown", this.moveGun)
+    $(`#gun-${this.id}`).append('<div id="projectile" style="bottom: 0px; left: 4px;"></div>')
+    var projectile = new Projectile(this.angle, 17, this)
     projectile.fire()
     //this.velocity instead of 15
   }
@@ -43,11 +52,11 @@ class Gun {
 
   rotateGunLeft() {
     this.angle -= 2
-    gun.style.transform = `rotate(${this.angle}deg)`
+    this.gun.style.transform = `rotate(${this.angle}deg)`
   }
 
   rotateGunRight() {
     this.angle += 2
-    gun.style.transform = `rotate(${this.angle}deg)`
+    this.gun.style.transform = `rotate(${this.angle}deg)`
   }
 }

@@ -1,11 +1,11 @@
 #game {
   background-color: #111;
-  height: 400px;
+  height: 500px;
   margin: 0 auto;
   overflow: hidden;
   position: relative;
   text-align: center;
-  width: 400px;
+  width: 800px;
   /* make wide screen */
 }
 
@@ -15,15 +15,57 @@
   width: 5px;
   position: absolute;
   display: block;
+  border-radius: 2px;
 }
 
-#gun {
-  width: 8px;
-  height: 50px;
+.gun {
+  width: 13px;
+  height: 30px;
   background: blue;
   bottom: 20px;
-  left: 200px;
   position: absolute;
   display: block;
   transform-origin: 50% 100%;
+}
+
+#gun-1 {
+  left: 100px;
+}
+
+#gun-2 {
+  left: 670px;
+}
+
+#status {
+  background: green;
+  bottom: 400px;
+  left: 300px;
+  height: 50px;
+  width: 200px;
+  position: absolute;
+  text-align: center;
+
+}
+
+p {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+#player-one-status {
+  height: 50px;
+  width: 100px;
+  left: 50px;
+  bottom: 450px;
+  background: red;
+  position: absolute;
+}
+
+#player-two-status {
+  height: 50px;
+  width: 100px;
+  left: 650px;
+  bottom: 450px;
+  background: purple;
+  position: absolute;
 }
