@@ -24,7 +24,7 @@ class Projectile {
   bothMovement() {
     var gravity = .25*(this.time)
     //change gravity to make it believable
-    var game = this.gun.game
+    var game = this.gun.tank.game
 
     if (this.checkCollision(this.proj)) {
       this.proj.remove()

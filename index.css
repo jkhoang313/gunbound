@@ -19,7 +19,8 @@
 }
 
 .gun {
-  width: 13px;
+  width: 12px;
+  left: 14px;
   height: 30px;
   background: blue;
   bottom: 20px;
@@ -29,11 +30,9 @@
 }
 
 #gun-1 {
-  left: 100px;
 }
 
 #gun-2 {
-  left: 670px;
 }
 
 #status {
@@ -68,4 +67,23 @@ p {
   bottom: 450px;
   background: purple;
   position: absolute;
+}
+
+.tank {
+  height: 20px;
+  width: 40px;
+  bottom: 0px;
+}
+
+#tank-1 {
+  left: 200px;
+  position: absolute;
+  background: red;
+}
+
+#tank-2 {
+  left: 670px;
+  position: absolute;
+  background: purple;
+
 }

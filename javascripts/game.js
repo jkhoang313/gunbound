@@ -1,20 +1,17 @@
 class Game {
   constructor () {
     this.turn = 0
-    this.appendGuns()
-    this.guns = [new Gun(this, 1), new Gun(this, 2)]
-    this.gunOneCommand = this.guns[0].command.bind(this.guns[0])
-    this.gunTwoCommand = this.guns[1].command.bind(this.guns[1])
+    this.appendTanks()
+    this.tanks = [new Tank(this, 1), new Tank(this, 2)]
   }
 
   startGame () {
-    this.appendGuns.bind(this)
     this.newTurn()
   }
 
-  appendGuns() {
-      $('#game').append(`<div class='gun' id= 'gun-1'</div>`)
-      $('#game').append(`<div class='gun' id= 'gun-2'</div>`)
+  appendTanks() {
+    $('#game').append("<div class='tank' id='tank-1' style='left: 200px;'></div>")
+    $('#game').append("<div class='tank' id='tank-2' style='left: 670px;'></div>")
   }
 
   nextTurn() {
@@ -27,14 +24,13 @@ class Game {
     if (player === 0) {
       $('p.player').html('Player One')
       $('p.status').html('Move Your Tank')
-
-      $(document).on("keydown", this.gunOneCommand)
+      $(document).on("keydown", this.tanks[0].tankCommand)
 
     } else{
       $('p.player').html('Player Two')
       $('p.status').html('Move Your Tank')
 
-      $(document).on("keydown", this.gunTwoCommand)
+      $(document).on("keydown", this.tanks[1].tankCommand)
 
     }
     //add player one turn and player two turn
