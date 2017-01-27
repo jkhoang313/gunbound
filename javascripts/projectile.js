@@ -17,7 +17,7 @@ class Projectile {
   }
 
   updateProjectile() {
-    var gravity = .2*(this.timeInAir)
+    var gravity = 15*(this.timeInAir)
     //change gravity to make it believable
     this.bottom += (this.yVelocity - gravity)
     this.relLeft += this.xVelocity
@@ -55,7 +55,7 @@ class Projectile {
       this.updateProjectile()
       this.proj.style.bottom = `${this.bottom}px`
       this.proj.style.left = `${this.relLeft}px`
-      this.timeInAir += 1
+      this.timeInAir += 1/60
       window.requestAnimationFrame(this.bothMovement.bind(this))
     }
   }

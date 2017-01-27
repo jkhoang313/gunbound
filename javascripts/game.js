@@ -25,9 +25,20 @@ class Game {
   }
 
   newTurn() {
+    this.countdownTimer()
+    var startTime = new Date
+
+
     var player = this.turn % 2 + 1
     $('p.player').html(`Player ${player}'s Turn`)
     $(document).on("keydown", this.command)
+  }
+
+  countdownTimer() {
+    setInterval(function() {
+      var endTime = new Date
+      $('.test').html(`${endTime}`)
+    }, 1000)
   }
 
   commandTank(e) {
