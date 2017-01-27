@@ -5,7 +5,8 @@ class Gun {
     this.gun = document.getElementById(`gun-${this.tank.id}`)
     this.gun.style.transform = `rotate(${this.angle}deg)`
     this.moveGun =  this.rotateGun.bind(this)
-  }
+    this.left = this.tank.left + 14
+    }
 
 
   shoot() {
@@ -17,7 +18,6 @@ class Gun {
   }
 
   rotateGun(e) {
-
     if (e.which === 32) {
       this.shoot()
     }

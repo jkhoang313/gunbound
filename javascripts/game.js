@@ -7,6 +7,9 @@ class Game {
 
   startGame () {
     this.newTurn()
+    this.tanks.forEach( function(tank, index, tanks) {
+      tank.findEnemyTank.call(tank)
+    })
   }
 
   appendTanks() {

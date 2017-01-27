@@ -9,16 +9,21 @@ class Projectile {
     this.xVelocity = Math.cos(this.angle) * velocity
     this.time = 0
     this.gun = gun
+    this.absLeft = this.left + this.gun.left
   }
 
   fire() {
     window.requestAnimationFrame(this.bothMovement.bind(this))
   }
 
+  absLeft() {
+    this.absLeft = this.left + this.gun.left
+  }
   checkCollision() {
     var left = parseInt(this.proj.style.left, 10)
     var bottom = parseInt(this.proj.style.bottom, 10)
-    return (left < -1000 || left > 1000 || bottom < 0)
+    debugger
+    return (left < -1000 || left > 1000 || bottom < 0) || (this.gun.left + 14 + left)
   }
 
   bothMovement() {

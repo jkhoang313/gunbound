@@ -8,8 +8,17 @@ class Tank {
     this.gun = new Gun(this, id)
     this.tankCommand = this.tankCommand.bind(this)
   }
+
+  findEnemyTank() {
+    if (this.id === 1) {
+      this.enemyTank=this.game.tanks[1]
+    } else if (this.id === 2) {
+      this.enemyTank=this.game.tanks[0]
+    }
+  }
+
   appendGun() {
-      $(`#tank-${this.id}`).append(`<div class='gun' id= 'gun-${this.id}'</div>`)
+      $(`#tank-${this.id}`).append(`<div class='gun' id= 'gun-${this.id}' style="left: 14px;" </div>`)
   }
 
   tankCommand(e) {
@@ -31,12 +40,12 @@ class Tank {
   }
 
   moveTankLeft() {
-    this.left -= 3
+    this.left -= 1
     this.tank.style.left =`${this.left}px`
   }
 
   moveTankRight() {
-    this.left += 3
+    this.left += 1
     this.tank.style.left =`${this.left}px`
   }
 
