@@ -20,6 +20,8 @@ class Projectile {
     var gravity = .20*(this.time)
     //change gravity to make it believable
     this.relLeft += this.xVelocity
+    this.absLeft = this.gun.absLeft + this.relLeft
+    this.absRight = this.absLeft + 6
     this.bottom += (this.yVelocity - gravity)
   }
 
@@ -30,7 +32,8 @@ class Projectile {
   }
 
   hitTank(tank) {
-    if ((this.absLeft <= tank.absLeft && this.absLeft >= tank.absLeft && this.bottom <= 0) || (this.absRight <= tank.absRight && this.absRight >= tank.absLeft && this.bottom <= 0)) {
+    if ((this.absLeft <= tank.absLeft && this.absLeft >= tank.absRight && this.bottom <= 0) || (this.absRight <= tank.absRight && this.absRight >= tank.absLeft && this.bottom <= 0)) {
+      debugger
       $('.test').html("hit")
       tank.hp -= 1
       $(`p#tank-${tank.id}-health`).html(`${tank.hp}`)

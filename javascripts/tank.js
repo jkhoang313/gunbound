@@ -26,20 +26,17 @@ class Tank {
 
   tankCommand(e) {
     if (e.which === 32) {
-      if (this.id === 1) {
-        $(document).off("keydown", this.tankCommand)
-        $('p.status').html('Aim Your Gun')
-
-      } else if (this.id === 2) {
-        $(document).off("keydown", this.tankCommand)
-        $('p.status').html('Aim Your Gun')
-      }
-      //maybe remove
+      $(document).off("keydown", this.tankCommand)
+      $('p.status').html('Aim Your Gun')
       $(document).on("keydown", this.gun.moveGun)
     } else if (e.which === 37) {
         this.moveTankLeft()
     } else if (e.which === 39) {
         this.moveTankRight()
+    } else if (e.which === 38) {
+
+    } else if (e.which === 40) {
+
     }
   }
 

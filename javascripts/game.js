@@ -28,13 +28,15 @@ class Game {
       $('p.player').html('Player One')
       $('p.status').html('Move Your Tank')
       $(document).on("keydown", this.tanks[0].tankCommand)
-
     } else{
       $('p.player').html('Player Two')
       $('p.status').html('Move Your Tank')
-
       $(document).on("keydown", this.tanks[1].tankCommand)
     }
+  }
+
+  command() {
+    
   }
 
   endGame() {
