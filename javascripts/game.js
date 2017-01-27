@@ -6,10 +6,10 @@ class Game {
   }
 
   startGame () {
-    this.newTurn()
     this.tanks.forEach( function(tank, index, tanks) {
       tank.findEnemyTank.call(tank)
     })
+    this.newTurn()
   }
 
   appendTanks() {
@@ -34,8 +34,16 @@ class Game {
       $('p.status').html('Move Your Tank')
 
       $(document).on("keydown", this.tanks[1].tankCommand)
-
     }
-    //add player one turn and player two turn
+  }
+
+  endGame() {
+    if (this.tanks[0].hp === 0) {
+      $('p.player').html('Terminator')
+      //change later to accept players
+    } else if (this.tanks[1].hp === 0) {
+      $('p.player').html('Red Baron')
+    }
+    $('p.status').html('Wins')
   }
 }

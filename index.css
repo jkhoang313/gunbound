@@ -11,8 +11,8 @@
 
 #projectile {
   background: white;
-  height: 5px;
-  width: 5px;
+  height: 6px;
+  width: 6px;
   position: absolute;
   display: block;
   border-radius: 2px;
@@ -83,5 +83,13 @@ p {
   left: 670px;
   position: absolute;
   background: purple;
-
 }
+/*
+.test {
+  background: white;
+  bottom: 300px;
+  left: 100px;
+  position: absolute;
+  height: 20px;
+  width: 100px;
+}*/
