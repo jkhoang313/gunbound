@@ -31,10 +31,22 @@ class Projectile {
   hitTank(tank) {
     if ((this.absLeft <= tank.absLeft && this.absLeft >= tank.absRight && this.bottom <= 0) || (this.absRight <= tank.absRight && this.absRight >= tank.absLeft && this.bottom <= 0)) {
       $('.result').html("hit")
+      $('.result').css({background: "red"})
+      setTimeout(function(){
+        $('.result').html("")
+      }, 2000);
+      this.flashHP(tank)
       tank.hp -= 1
-      $(`p#tank-${tank.id}-health`).html(`${tank.hp}`)
+      $(`p#tank-${tank.id}-health`).html(`HP: ${tank.hp}`)
       return true
     } else {
+      if (this.bottom < 0) {
+        $('.result').html("miss")
+        $('.result').css({background: "green"})
+        setTimeout(function(){
+          $('.result').html("")
+        }, 2000);
+      }
       return false
     }
   }
@@ -56,5 +68,27 @@ class Projectile {
       this.timeInAir += 1/60
       window.requestAnimationFrame(this.bothMovement.bind(this))
     }
+  }
+
+  flashHP(tank) {
+    var color
+    if (tank.id === 1) {
+      color = "yellow"
+    } else if (tank.id === 2) {
+      color = "purple"
+    }
+    $(`#player-${tank.id}-status`).css({background: "red"})
+    setTimeout(function() {
+      $(`#player-${tank.id}-status`).css({background: color})
+      $('.result').css({background: color})
+    }, 500)
+    setTimeout(function() {
+      $(`#player-${tank.id}-status`).css({background: "red"})
+      $('.result').css({background: "red"})
+    }, 1000)
+    setTimeout(function() {
+      $(`#player-${tank.id}-status`).css({background: color})
+      $('.result').css({background: color})
+    }, 1500)
   }
 }

@@ -10,7 +10,6 @@ class Tank {
     this.hp = 5
     this.rims = $(`div#tank-${this.id} .rim-1`)
     this.rimsAngle = 0
-    this.rotateRims
   }
 
   findEnemyTank() {

@@ -4,34 +4,44 @@ class Game {
     this.appendTanks()
     this.tanks = [new Tank(this, 1), new Tank(this, 2)]
     this.command = this.commandTank.bind(this)
-    this.counter = 10
+    this.counter = 20
     this.timer = this.countdown.call(this)
   }
 
   startGame () {
     this.tanks.forEach(function(tank, index, tanks) {
       tank.findEnemyTank.call(tank)
-      $(`p#tank-${tank.id}-health`).html(`${tank.hp}`)
+      $(`p#tank-${tank.id}-health`).html(`HP: ${tank.hp}`)
     })
     this.newTurn()
   }
 
   appendTanks() {
-    $('#game').append("<div class='tank' id='tank-1' style='left: 200px;'><div class='cover'><div class='wheel-1'><div class='rim-1'></div></div><div class='wheel-2'><div class='rim-1'></div></div></div></div>")
+    $('#game').append("<div class='tank' id='tank-1' style='left: 90px;'><div class='cover'><div class='wheel-1'><div class='rim-1'></div></div><div class='wheel-2'><div class='rim-1'></div></div></div></div>")
     $('#game').append("<div class='tank' id='tank-2' style='left: 670px;'><div class='cover'><div class='wheel-1'><div class='rim-1'></div></div><div class='wheel-2'><div class='rim-1'></div></div></div></div>")
   }
 
   nextTurn() {
     this.turn += 1
-    this.counter = 10
-    this.newTurn()
-    $('.result').html("")
+    this.counter = 15
+    setTimeout(this.newTurn.bind(this), 1000)
   }
 
   newTurn() {
     this.timer
     var player = this.turn % 2 + 1
     $('p.player').html(`Player ${player}'s Turn`)
+    if (player === 1) {
+      $('.result').css({background: "yellow"})
+      $('#status').css({background: "yellow"})
+      $('.angle').css({background: "yellow"})
+      $('.timer').css({background: "yellow"})
+    } else if (player === 2) {
+      $('.result').css({background: "purple"})
+      $('#status').css({background: "purple"})
+      $('.angle').css({background: "purple"})
+      $('.timer').css({background: "purple"})
+    }
     $(document).on("keydown", this.command)
   }
 

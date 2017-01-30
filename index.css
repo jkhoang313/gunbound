@@ -32,7 +32,7 @@
   background: green;
   bottom: 400px;
   left: 300px;
-  height: 50px;
+  height: 30px;
   width: 200px;
   position: absolute;
   text-align: center;
@@ -43,20 +43,20 @@ p {
   margin-bottom: 5px;
 }
 
-#player-one-status {
+#player-1-status {
   height: 50px;
   width: 100px;
-  left: 50px;
-  bottom: 450px;
-  background: red;
+  left: 20px;
+  bottom: 430px;
+  background: yellow;
   position: absolute;
 }
 
-#player-two-status {
+#player-2-status {
   height: 50px;
   width: 100px;
-  left: 650px;
-  bottom: 450px;
+  left: 680px;
+  bottom: 430px;
   background: purple;
   position: absolute;
 }
@@ -69,7 +69,7 @@ p {
 }
 
 #tank-1 {
-  background: red;
+  background: yellow;
 }
 
 #tank-2 {
@@ -78,15 +78,24 @@ p {
 
 .timer {
   background: white;
-  bottom: 300px;
-  left: 100px;
+  bottom: 240px;
+  left: 350px;
+  position: absolute;
+  height: 20px;
+  width: 100px;
+}
+
+.result {
+  background: blue;
+  bottom: 270px;
+  left: 350px;
   position: absolute;
   height: 20px;
   width: 100px;
 }
 
 .angle {
-  left: 600px;
+  left: 350px;
   bottom: 300px;
   height: 20px;
   width: 100px;
@@ -94,14 +103,6 @@ p {
   position: absolute;
 }
 
-.result {
-  background: white;
-  bottom: 300px;
-  left: 350px;
-  position: absolute;
-  height: 20px;
-  width: 100px;
-}
 
 .wheel-1 {
   border-radius: 5px;
