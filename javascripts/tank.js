@@ -18,17 +18,22 @@ class Tank {
     }
   }
 
+
   appendGun() {
     $(`#tank-${this.id}`).append(`<div class='gun' id= 'gun-${this.id}' style="left: 14px;" </div>`)
   }
 
   moveTankLeft() {
     this.absLeft -= 1
+    this.absRight -= 1
+    this.gun.absLeft -= 1
     this.tank.style.left =`${this.absLeft}px`
   }
 
   moveTankRight() {
     this.absLeft += 1
+    this.absRight +=1
+    this.gun.absLeft += 1
     this.tank.style.left =`${this.absLeft}px`
   }
 }

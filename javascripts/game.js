@@ -4,6 +4,8 @@ class Game {
     this.appendTanks()
     this.tanks = [new Tank(this, 1), new Tank(this, 2)]
     this.command = this.commandTank.bind(this)
+    this.counter = 10
+    this.timer = this.countdown.call(this)
   }
 
   startGame () {
@@ -21,25 +23,36 @@ class Game {
 
   nextTurn() {
     this.turn += 1
+    this.counter = 10
     this.newTurn()
   }
 
   newTurn() {
-    this.countdownTimer()
-    var startTime = new Date
-
-
+    this.timer
     var player = this.turn % 2 + 1
     $('p.player').html(`Player ${player}'s Turn`)
     $(document).on("keydown", this.command)
   }
 
-  countdownTimer() {
+  countdown() {
+    var self = this
     setInterval(function() {
-      var endTime = new Date
-      $('.test').html(`${endTime}`)
+      self.countDownTimer()
     }, 1000)
   }
+
+  countDownTimer() {
+      if (this.counter === 0) {
+        clearInterval(this.timer)
+        $(document).off("keydown", this.command)
+        this.nextTurn()
+      } else if (this.counter === -1) {
+
+      } else {
+        this.counter -= 1
+        $('.test').html(`${this.counter}`)
+      }
+    }
 
   commandTank(e) {
     var tank
@@ -64,6 +77,7 @@ class Game {
   }
 
   endGame() {
+    this.counter = -1
     if (this.tanks[0].hp === 0) {
       $('p.player').html('Terminator')
       //change later to accept players

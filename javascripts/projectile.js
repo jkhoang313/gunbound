@@ -18,9 +18,11 @@ class Projectile {
 
   updateProjectile() {
     var gravity = 15*(this.timeInAir)
-    //change gravity to make it believable
     this.bottom += (this.yVelocity - gravity)
     this.relLeft += this.xVelocity
+    if (this.yVelocity-gravity < 0) {
+      debugger
+    }
     this.absLeft = this.gun.absLeft + this.relLeft
     this.absRight = this.absLeft + 6
   }
@@ -30,9 +32,11 @@ class Projectile {
   }
 
   hitTank(tank) {
+    if (this.bottom < 1) {
+      debugger
+    }
     if ((this.absLeft <= tank.absLeft && this.absLeft >= tank.absRight && this.bottom <= 0) || (this.absRight <= tank.absRight && this.absRight >= tank.absLeft && this.bottom <= 0)) {
       $('.test').html("hit")
-      //
       tank.hp -= 1
       $(`p#tank-${tank.id}-health`).html(`${tank.hp}`)
       return true
@@ -43,13 +47,13 @@ class Projectile {
 
   bothMovement() {
     if (this.checkCollision()) {
-      this.proj.remove()
+      // this.proj.remove()
       if (this.gun.tank.hp === 0) {
         this.gun.tank.game.endGame()
       } else if (this.gun.tank.enemyTank.hp === 0) {
         this.gun.tank.game.endGame()
       } else {
-        this.gun.tank.game.nextTurn()
+        this.gun.tank.game.counter = 0
       }
     } else {
       this.updateProjectile()
