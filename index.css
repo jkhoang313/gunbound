@@ -102,3 +102,47 @@ p {
   height: 20px;
   width: 100px;
 }
+
+.wheel-1 {
+  border-radius: 5px;
+  background: grey;
+  position: absolute;
+  height: 11px;
+  width: 11px;
+  bottom: 0px;
+}
+
+.wheel-2 {
+  border-radius: 5px;
+  background: grey;
+  position: absolute;
+  height: 11px;
+  width: 11px;
+  bottom: 0px;
+  left: 29px;
+}
+
+.cover {
+  background: black;
+  position: absolute;
+  height: 5px;
+  width: 40px;
+  bottom: 0px;
+}
+
+.rim-1 {
+  background: blue;
+  position: absolute;
+  height: 1px;
+  width: 11px;
+  bottom: 5px;
+}
+
+.gun-cap {
+  background: blue;
+  height: 12px;
+  width: 12px;
+  border-radius: 7px;
+  bottom: -6px;
+  position: absolute;
+}

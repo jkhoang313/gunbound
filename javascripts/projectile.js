@@ -20,21 +20,15 @@ class Projectile {
     var gravity = 15*(this.timeInAir)
     this.bottom += (this.yVelocity - gravity)
     this.relLeft += this.xVelocity
-    if (this.yVelocity-gravity < 0) {
-      debugger
-    }
     this.absLeft = this.gun.absLeft + this.relLeft
     this.absRight = this.absLeft + 6
   }
 
   checkCollision() {
-    return this.hitTank(this.gun.tank.enemyTank) || this.hitTank(this.gun.tank) || this.relLeft < -1000 || this.relLeft > 1000 || this.bottom < 0
+    return this.hitTank(this.gun.tank.enemyTank) || this.hitTank(this.gun.tank) || this.relLeft < -1000 || this.relLeft > 1000 || this.bottom < -20
   }
 
   hitTank(tank) {
-    if (this.bottom < 1) {
-      debugger
-    }
     if ((this.absLeft <= tank.absLeft && this.absLeft >= tank.absRight && this.bottom <= 0) || (this.absRight <= tank.absRight && this.absRight >= tank.absLeft && this.bottom <= 0)) {
       $('.result').html("hit")
       tank.hp -= 1

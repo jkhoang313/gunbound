@@ -17,14 +17,15 @@ class Game {
   }
 
   appendTanks() {
-    $('#game').append("<div class='tank' id='tank-1' style='left: 200px;'></div>")
-    $('#game').append("<div class='tank' id='tank-2' style='left: 670px;'></div>")
+    $('#game').append("<div class='tank' id='tank-1' style='left: 200px;'><div class='cover'><div class='wheel-1'><div class='rim-1'></div></div><div class='wheel-2'><div class='rim-1'></div></div></div></div>")
+    $('#game').append("<div class='tank' id='tank-2' style='left: 670px;'><div class='cover'><div class='wheel-1'><div class='rim-1'></div></div><div class='wheel-2'><div class='rim-1'></div></div></div></div>")
   }
 
   nextTurn() {
     this.turn += 1
     this.counter = 10
     this.newTurn()
+    $('.result').html("")
   }
 
   newTurn() {

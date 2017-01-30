@@ -9,9 +9,10 @@ class Gun {
 
   shoot() {
     var angle = this.angle
-    this.gun.style.transform = `rotate(0deg)`
+    this.angle = 0
+    this.gun.style.transform = `rotate(${this.angle}deg)`
     $(`#gun-${this.tank.id}`).append('<div id="projectile" style="bottom: 1px; left: 4px;"></div>')
-    var projectile = new Projectile(this.angle, 15, this)
+    var projectile = new Projectile(angle, 15, this)
     projectile.fire()
   }
 
