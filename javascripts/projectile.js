@@ -36,7 +36,7 @@ class Projectile {
       debugger
     }
     if ((this.absLeft <= tank.absLeft && this.absLeft >= tank.absRight && this.bottom <= 0) || (this.absRight <= tank.absRight && this.absRight >= tank.absLeft && this.bottom <= 0)) {
-      $('.test').html("hit")
+      $('.result').html("hit")
       tank.hp -= 1
       $(`p#tank-${tank.id}-health`).html(`${tank.hp}`)
       return true
@@ -47,7 +47,7 @@ class Projectile {
 
   bothMovement() {
     if (this.checkCollision()) {
-      // this.proj.remove()
+      this.proj.remove()
       if (this.gun.tank.hp === 0) {
         this.gun.tank.game.endGame()
       } else if (this.gun.tank.enemyTank.hp === 0) {

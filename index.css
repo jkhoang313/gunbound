@@ -76,10 +76,28 @@ p {
   background: purple;
 }
 
-.test {
+.timer {
   background: white;
   bottom: 300px;
   left: 100px;
+  position: absolute;
+  height: 20px;
+  width: 100px;
+}
+
+.angle {
+  left: 600px;
+  bottom: 300px;
+  height: 20px;
+  width: 100px;
+  background: white;
+  position: absolute;
+}
+
+.result {
+  background: white;
+  bottom: 300px;
+  left: 350px;
   position: absolute;
   height: 20px;
   width: 100px;

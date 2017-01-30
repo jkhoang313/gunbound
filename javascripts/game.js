@@ -36,6 +36,7 @@ class Game {
 
   countdown() {
     var self = this
+    $('.timer').html(`${this.counter}`)
     setInterval(function() {
       self.countDownTimer()
     }, 1000)
@@ -47,10 +48,9 @@ class Game {
         $(document).off("keydown", this.command)
         this.nextTurn()
       } else if (this.counter === -1) {
-
       } else {
         this.counter -= 1
-        $('.test').html(`${this.counter}`)
+        $('.timer').html(`${this.counter}`)
       }
     }
 

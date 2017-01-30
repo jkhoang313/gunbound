@@ -7,7 +7,7 @@ class Tank {
     this.absRight = this.absLeft + 40
     this.appendGun()
     this.gun = new Gun(this, id)
-    this.hp = 2
+    this.hp = 5
   }
 
   findEnemyTank() {
