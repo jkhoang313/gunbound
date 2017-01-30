@@ -7,7 +7,7 @@ class Tank {
     this.absRight = this.absLeft + 40
     this.appendGun()
     this.gun = new Gun(this, id)
-    this.hp = 5
+    this.hp = 3
     this.rims = $(`div#tank-${this.id} .rim-1`)
     this.rimsAngle = 0
   }

@@ -90,11 +90,10 @@ class Game {
   endGame() {
     this.counter = -1
     if (this.tanks[0].hp === 0) {
-      $('p.player').html('Terminator')
+      $('p.player').html('Terminator Wins')
       //change later to accept players
     } else if (this.tanks[1].hp === 0) {
-      $('p.player').html('Red Baron')
+      $('p.player').html('Red Baron Wins')
     }
-    $('p.status').html('Wins')
   }
 }

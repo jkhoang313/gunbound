@@ -30,7 +30,7 @@ class Projectile {
 
   hitTank(tank) {
     if ((this.absLeft <= tank.absLeft && this.absLeft >= tank.absRight && this.bottom <= 0) || (this.absRight <= tank.absRight && this.absRight >= tank.absLeft && this.bottom <= 0)) {
-      $('.result').html("hit")
+      $('.result').html("HIT")
       $('.result').css({background: "red"})
       setTimeout(function(){
         $('.result').html("")
@@ -41,7 +41,7 @@ class Projectile {
       return true
     } else {
       if (this.bottom < 0) {
-        $('.result').html("miss")
+        $('.result').html("MISS")
         $('.result').css({background: "green"})
         setTimeout(function(){
           $('.result').html("")
