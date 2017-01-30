@@ -4,10 +4,13 @@ class Projectile {
     this.relLeft = parseInt(this.proj.style.left, 10)
     this.bottom = parseInt(this.proj.style.bottom, 10)
     this.angle = Math.PI * (90 - angle)/180
-    this.yVelocity = Math.sin(this.angle) * velocity
-    this.xVelocity = Math.cos(this.angle) * velocity
     this.timeInAir = 0
     this.gun = gun
+    this.game = this.gun.tank.game
+    // this.windYVelocity = Math.sin(this.game.windAngle/180) * this.game.windSpeed
+    // this.windXVelocity = Math.cos(this.game.windAngle/180) * this.game.windSpeed
+    this.yVelocity = Math.sin(this.angle) * velocity
+    this.xVelocity = Math.cos(this.angle) * velocity
     this.absLeft = this.gun.absLeft + this.relLeft
     this.absRight = this.absLeft + 6
   }

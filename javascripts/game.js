@@ -6,6 +6,8 @@ class Game {
     this.command = this.commandTank.bind(this)
     this.counter = 20
     this.timer = this.countdown.call(this)
+    // this.windAngle = Math.floor(Math.random() * 360)
+    // this.windSpeed = Math.floor(Math.random() * 3)
   }
 
   startGame () {
@@ -29,6 +31,7 @@ class Game {
 
   newTurn() {
     this.timer
+    $('p.angle').html(`0 &#176`)
     var player = this.turn % 2 + 1
     $('p.player').html(`Player ${player}'s Turn`)
     if (player === 1) {
