@@ -6,8 +6,8 @@ class Game {
     this.command = this.commandTank.bind(this)
     this.counter = 20
     this.timer = this.countdown.call(this)
-    // this.windAngle = Math.floor(Math.random() * 360)
-    // this.windSpeed = Math.floor(Math.random() * 3)
+    this.windAngle = Math.round(Math.random() * 360)
+    this.windSpeed = (Math.round(Math.random() * 5))
   }
 
   startGame () {
@@ -15,12 +15,20 @@ class Game {
       tank.findEnemyTank.call(tank)
       $(`p#tank-${tank.id}-health`).html(`HP: ${tank.hp}`)
     })
+    this.setWind()
+    // do every turn instead
     this.newTurn()
   }
 
+  setWind() {
+    $('p.wind-speed').html(`${this.windSpeed}`)
+    $('p.wind-angle').html(`${this.windAngle}`)
+    $('div#wind-arrow').css({transform: `rotate(${-(this.windAngle - 90)}deg)`})
+  }
+
   appendTanks() {
-    $('#game').append("<div class='tank' id='tank-1' style='left: 90px;'><div class='cover'><div class='wheel-1'><div class='rim-1'></div></div><div class='wheel-2'><div class='rim-1'></div></div></div></div>")
-    $('#game').append("<div class='tank' id='tank-2' style='left: 670px;'><div class='cover'><div class='wheel-1'><div class='rim-1'></div></div><div class='wheel-2'><div class='rim-1'></div></div></div></div>")
+    $('#game').append("<div class='tank' id='tank-1' style='left: 90px;'><div class='cover'><div class='wheel-1'><div class='rim-1'></div><div class='rim-2'></div></div><div class='wheel-2'><div class='rim-1'></div><div class='rim-2'></div></div></div></div>")
+    $('#game').append("<div class='tank' id='tank-2' style='left: 670px;'><div class='cover'><div class='wheel-1'><div class='rim-1'></div><div class='rim-2'></div></div><div class='wheel-2'><div class='rim-1'></div><div class='rim-2'></div></div></div></div>")
   }
 
   nextTurn() {

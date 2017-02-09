@@ -3,6 +3,8 @@
   <head>
     <title></title>
     <link rel="stylesheet" type="text/css" href="index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
     <script
       src="https://code.jquery.com/jquery-2.2.4.min.js"
       integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
@@ -16,26 +18,49 @@
   </head>
 
   <body>
-    <div id="game">
-      <div id="timer">
-        <p class="timer"></p>
+    <div class="row">
+    </div>
+    <div class="row">
+      <div id="game">
+        <div id="timer">
+          <p class="timer"></p>
+        </div>
+        <div id="wind">
+          <p>Wind</p>
+          <p class='wind-speed'></p>
+          <p class='wind-angle'></p>
+        </div>
+        <div id="wind-pic">
+          <div id="wind-arrow">
+            <div id="wind-arrow-tip">
+            </div>
+          </div>
+        </div>
+        <div id="status">
+          <p class='player'></p>
+        </div>
+        <div id="player-1-status">
+          <p class='name'>Red Baron</p>
+          <p id="tank-1-health"></p>
+        </div>
+        <div id="player-2-status">
+          <p class='name'>Terminator</p>
+          <p id="tank-2-health"></p>
+        </div>
+        <div id="result">
+          <p class="result"></p>
+        </div>
+        <div id="angle">
+          <p class="angle"></p>
+        </div>
       </div>
-      <div id="status">
-        <p class='player'></p>
-      </div>
-      <div id="player-1-status">
-        <p class='name'>Red Baron</p>
-        <p id="tank-1-health"></p>
-      </div>
-      <div id="player-2-status">
-        <p class='name'>Terminator</p>
-        <p id="tank-2-health"></p>
-      </div>
-      <div id="result">
-        <p class="result"></p>
-      </div>
-      <div id="angle">
-        <p class="angle"></p>
+    </div>
+    <div class="row center-align">
+      <div id="instructions">
+        <h6>Left and Right Arrow Keys: Move your tank left and right</h6>
+        <h6>Up and Down Arrow Keys: Move your tank's gun angle</h6>
+        <h6>Space Bar: Shoot your gun</h6>
+        <h6>Objective: Hit your opponent's tank to deplete his HP before your opponent does it first!</h6>
       </div>
     </div>
   </body>
