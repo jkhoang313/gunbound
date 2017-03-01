@@ -8,8 +8,10 @@ class Tank {
     this.appendGun()
     this.gun = new Gun(this, id)
     this.hp = 3
-    this.rims = $(`div#tank-${this.id} .rim-1`)
-    this.rimsAngle = 0
+    this.rimOne = $(`div#tank-${this.id} .rim-1`)
+    this.rimOneAngle = 0
+    this.rimTwo = $(`div#tank-${this.id} .rim-2`)
+    this.rimTwoAngle = 90
   }
 
   findEnemyTank() {
@@ -28,7 +30,8 @@ class Tank {
     this.absLeft -= 1
     this.absRight -= 1
     this.gun.absLeft -= 1
-    this.rimsAngle -= 10
+    this.rimOneAngle -= 10
+    this.rimTwoAngle -= 10
     this.rotateRim()
     this.tank.style.left =`${this.absLeft}px`
   }
@@ -37,12 +40,14 @@ class Tank {
     this.absLeft += 1
     this.absRight +=1
     this.gun.absLeft += 1
-    this.rimsAngle += 10
+    this.rimOneAngle += 10
+    this.rimTwoAngle += 10
     this.rotateRim()
     this.tank.style.left =`${this.absLeft}px`
   }
 
   rotateRim() {
-    this.rims.css({transform: `rotate(${this.rimsAngle}deg)`})
+    this.rimOne.css({transform: `rotate(${this.rimOneAngle}deg)`})
+    this.rimTwo.css({transform: `rotate(${this.rimTwoAngle}deg)`})
   }
 }

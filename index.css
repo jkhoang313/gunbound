@@ -6,36 +6,81 @@
   position: relative;
   text-align: center;
   width: 800px;
-  /* make wide screen */
 }
 
-#projectile {
+#wind {
+  background: teal;
+  bottom: 400px;
+  left: 280px;
+  height: 80px;
+  width: 100px;
+  position: absolute;
+  text-align: center;
+}
+
+#wind-pic {
+  background: teal;
+  bottom: 400px;
+  left: 420px;
+  height: 80px;
+  width: 100px;
+  position: absolute;
+  text-align: center;
+}
+
+#wind-arrow {
   background: white;
-  height: 6px;
+  height: 50px;
   width: 6px;
+  left: 47px;
+  bottom: 15px;
   position: absolute;
-  display: block;
-  border-radius: 2px;
 }
 
-.gun {
-  width: 12px;
-  height: 30px;
-  background: blue;
-  bottom: 20px;
+#wind-arrow-tip {
+  background: white;
+  height: 10px;
+  width: 10px;
+  left: -2px;
+  bottom: 48px;
   position: absolute;
-  display: block;
-  transform-origin: 50% 100%;
 }
 
 #status {
   background: green;
-  bottom: 400px;
+  bottom: 350px;
   left: 300px;
   height: 30px;
   width: 200px;
   position: absolute;
   text-align: center;
+}
+
+.angle {
+  left: 350px;
+  bottom: 300px;
+  height: 20px;
+  width: 100px;
+  background: white;
+  position: absolute;
+}
+
+.result {
+  background: blue;
+  bottom: 270px;
+  left: 350px;
+  position: absolute;
+  height: 20px;
+  width: 100px;
+}
+
+.timer {
+  background: white;
+  bottom: 240px;
+  left: 350px;
+  position: absolute;
+  height: 20px;
+  width: 100px;
 }
 
 p {
@@ -76,33 +121,13 @@ p {
   background: purple;
 }
 
-.timer {
-  background: white;
-  bottom: 240px;
-  left: 350px;
+.cover {
+  background: black;
   position: absolute;
-  height: 20px;
-  width: 100px;
+  height: 5px;
+  width: 40px;
+  bottom: 0px;
 }
-
-.result {
-  background: blue;
-  bottom: 270px;
-  left: 350px;
-  position: absolute;
-  height: 20px;
-  width: 100px;
-}
-
-.angle {
-  left: 350px;
-  bottom: 300px;
-  height: 20px;
-  width: 100px;
-  background: white;
-  position: absolute;
-}
-
 
 .wheel-1 {
   border-radius: 5px;
@@ -123,20 +148,32 @@ p {
   left: 29px;
 }
 
-.cover {
-  background: black;
-  position: absolute;
-  height: 5px;
-  width: 40px;
-  bottom: 0px;
-}
-
 .rim-1 {
   background: blue;
   position: absolute;
   height: 1px;
   width: 11px;
   bottom: 5px;
+}
+
+.rim-2 {
+  background: blue;
+  position: absolute;
+  height: 1px;
+  width: 11px;
+  bottom: 5px;
+  transform: rotate(90deg)
+}
+
+
+.gun {
+  width: 12px;
+  height: 30px;
+  background: blue;
+  bottom: 20px;
+  position: absolute;
+  display: block;
+  transform-origin: 50% 100%;
 }
 
 .gun-cap {
@@ -146,4 +183,13 @@ p {
   border-radius: 7px;
   bottom: -6px;
   position: absolute;
+}
+
+#projectile {
+  background: white;
+  height: 6px;
+  width: 6px;
+  position: absolute;
+  display: block;
+  border-radius: 2px;
 }
